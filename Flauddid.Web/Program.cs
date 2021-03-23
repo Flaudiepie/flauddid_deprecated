@@ -1,3 +1,5 @@
+using Flauddid.DataAccess;
+using Flauddid.Domain;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,10 +20,10 @@ namespace Flauddid.Web
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            var configuration = builder.Configuration;
-            var webAgentPool = new RedditSharp.RefreshTokenWebAgentPool(configuration["RedditClientID"],
-                                                                        configuration["RedditClientSecret"],
-                                                                        configuration["RedditRedirectURI"])
+            builder.Services.AddSingleton<IDataService, DataService>();
+            var webAgentPool = new RedditSharp.RefreshTokenWebAgentPool(builder.Configuration["RedditClientID"],
+                                                                        builder.Configuration["RedditClientSecret"],
+                                                                        builder.Configuration["RedditRedirectURI"])
             {
                 DefaultRateLimitMode = RedditSharp.RateLimitMode.Burst,
                 DefaultUserAgent = "SnooNotes (by Meepster23)"
