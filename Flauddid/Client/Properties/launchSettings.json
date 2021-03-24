@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:62418",
-      "sslPort": 44394
+      "applicationUrl": "http://localhost:1201",
+      "sslPort": 44300
     }
   },
   "profiles": {
@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Flauddid.Web": {
+    "Flauddid": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
