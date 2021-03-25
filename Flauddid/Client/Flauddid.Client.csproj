@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <UserSecretsId>c7ece65b-9ce2-4afa-8c58-c23327ccab96</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Flauddid.DataAccess\Flauddid.DataAccess.csproj" />
     <ProjectReference Include="..\Shared\Flauddid.Domain.csproj" />
   </ItemGroup>
 

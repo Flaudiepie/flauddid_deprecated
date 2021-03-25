@@ -21,6 +21,9 @@ namespace Flauddid.Server
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                }).ConfigureAppConfiguration( builder => 
+                {
+                    builder.AddUserSecrets<Program>();
                 });
     }
 }

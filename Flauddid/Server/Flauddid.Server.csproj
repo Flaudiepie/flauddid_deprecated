@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Flauddid.DataAccess\Flauddid.DataAccess.csproj" />
     <ProjectReference Include="..\Client\Flauddid.Client.csproj" />
     <ProjectReference Include="..\Shared\Flauddid.Domain.csproj" />
   </ItemGroup>
