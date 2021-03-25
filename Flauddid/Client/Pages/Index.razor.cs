@@ -12,12 +12,9 @@ namespace Flauddid.Client.Pages
         [Inject]
         public IPostService PostService { get; set; }
 
-        protected async Task GetPosts()
+        protected Task GetPosts()
         {
-            await Task.Factory.StartNew(() =>
-            {
-                PostService.GetData();
-            });
+            return PostService.GetAsync();
         }
     }
 }

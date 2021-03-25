@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Flauddid.Domain
 {
-    public interface IPostService
+    // excpliciter als ICollection<string> könnte besser sein aka vlt. ein model dafür erstellen
+    public interface IPostService : IService<ICollection<string>>
     {
-        public ICollection<string> GetData();
     }
 }

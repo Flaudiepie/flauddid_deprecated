@@ -1,4 +1,4 @@
-using Flauddid.DataAccess;
+using Flauddid.Server.DataAccess;
 using Flauddid.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +32,7 @@ namespace Flauddid.Server
                                                                 appId: Configuration["Reddit:RedditClientID"],
                                                                 appSecret: Configuration["Reddit:RedditClientSecret"],
                                                                 accessToken: Configuration["Reddit:AccessToken"]));
-            services.AddScoped<IPostService, PostService>();
+            services.AddSingleton<IPostService, PostService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

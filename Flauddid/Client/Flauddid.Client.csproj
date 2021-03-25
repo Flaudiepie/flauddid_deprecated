@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Flauddid.DataAccess\Flauddid.DataAccess.csproj" />
+    <ProjectReference Include="..\..\Flauddid.Client.DataAccess\Flauddid.Client.DataAccess.csproj" />
     <ProjectReference Include="..\Shared\Flauddid.Domain.csproj" />
   </ItemGroup>
 
