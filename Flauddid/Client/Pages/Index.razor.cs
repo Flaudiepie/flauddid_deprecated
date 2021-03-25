@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace Flauddid.Client.Pages
 {
-    public class IndexBase : ComponentBase
+    partial class Index : ComponentBase
     {
         [Inject]
         public IPostService PostService { get; set; }
 
-        protected Task GetPosts()
+        private ICollection<string> posts;
+
+        protected override async Task OnInitializedAsync()
         {
-            return PostService.GetAsync();
+            posts = await PostService.GetAsync();
+
+            await base.OnInitializedAsync();
         }
     }
 }

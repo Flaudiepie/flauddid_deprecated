@@ -1,6 +1,13 @@
 ﻿@page "/"
-@inherits IndexBase
 
-<button @onclick="GetPosts"/>
-
-Welcome to your new app.
+@if (posts is null)
+{
+    <p>Lade...</p>
+}
+else
+{
+    foreach (var post in posts)
+    {
+        <p>post</p>
+    }
+}
