@@ -1,5 +1,6 @@
 ﻿using Flauddid.Domain;
 using Reddit;
+using Reddit.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,24 +17,34 @@ namespace Flauddid.Server.DataAccess
             this.reddit = reddit;
         }
 
-        public Task CreateAsync(ICollection<string> item)
+        public Task CreateAsync(ICollection<Domain.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(ICollection<string> item)
+        public Task DeleteAsync(ICollection<Domain.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<string>> GetAsync()
+        public Task<ICollection<Domain.Post>> GetAsync()
         {
             var x = reddit.FrontPage;
-            Console.WriteLine(x);
-            return Task.FromResult<ICollection<string>>(Enumerable.Range(0, 1).Select(i => i.ToString()).ToArray());
+            var frontPage = reddit.FrontPage.Select((element) =>
+            {
+                if (element is (Reddit.Controllers.LinkPost))
+                {
+                    return Domain.Post.GetLinkPostAutoMapperConfig().Map<Domain.Post>(element);
+                }
+                else
+                {
+                    return Domain.Post.GetSelfPostAutoMapperConfig().Map<Domain.Post>(element);
+                }
+            }).ToList();
+            return Task.FromResult<ICollection<Domain.Post>>(frontPage);
         }
 
-        public Task<ICollection<string>> UpdateAsync(ICollection<string> item)
+        public Task<ICollection<Domain.Post>> UpdateAsync(ICollection<Domain.Post> item)
         {
             throw new NotImplementedException();
         }

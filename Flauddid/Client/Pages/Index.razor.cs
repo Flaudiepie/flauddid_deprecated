@@ -1,5 +1,6 @@
 ﻿using Flauddid.Domain;
 using Microsoft.AspNetCore.Components;
+using Reddit.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Flauddid.Client.Pages
         [Inject]
         public IPostService PostService { get; set; }
 
-        private ICollection<string> posts;
+        private ICollection<Domain.Post> posts;
 
         protected override async Task OnInitializedAsync()
         {

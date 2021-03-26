@@ -19,9 +19,10 @@ namespace Flauddid.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ICollection<string>>> GetActio()
+        public async Task<ActionResult<ICollection<Post>>> GetAsync()
         {
-            return Ok(await postService.GetAsync());
+            var x = Ok(await postService.GetAsync());
+            return x;
         }
     }
 }
