@@ -30,32 +30,8 @@ namespace Flauddid.Domain
         public string Content { get; set; }
         public bool Removed { get; set; }
         public string Thumbnail { get; set; }
-
-        public static IMapper GetSelfPostAutoMapperConfig()
-        {
-            return new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Reddit.Controllers.SelfPost, Post>()
-                .ForMember(dest => dest.Content, opt =>
-                {
-                    opt.MapFrom(src => src.SelfText);
-                });
-            }).CreateMapper();
-        }
-
-        public static IMapper GetLinkPostAutoMapperConfig()
-        {
-            return new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Reddit.Controllers.LinkPost, Post>()
-                .ForMember(dest => dest.Content, opt =>
-                {
-                    opt.MapFrom(src => src.Listing.Media != null ? src.Listing.Media.ToString() : src.URL);
-                }).ForMember(dest => dest.Path, opt =>
-                {
-                    opt.MapFrom(src => src.Permalink);
-                });
-            }).CreateMapper();
-        }
+        public double UpVodeRatio { get; set; }
+        public string Subreddit { get; set; }
+        public string URL { get; set; }
     }
 }

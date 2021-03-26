@@ -1,4 +1,5 @@
-﻿using Flauddid.Domain;
+﻿using AutoMapper;
+using Flauddid.Domain;
 using Reddit;
 using Reddit.Controllers;
 using System;
@@ -11,10 +12,11 @@ namespace Flauddid.Server.DataAccess
     public class PostService : IPostService
     {
         private readonly RedditClient reddit;
-
-        public PostService(RedditClient reddit)
+        private readonly IMapper mapper;
+        public PostService(RedditClient reddit, IMapper mapper)
         {
             this.reddit = reddit;
+            this.mapper = mapper;
         }
 
         public Task CreateAsync(ICollection<Domain.Post> item)
@@ -32,13 +34,13 @@ namespace Flauddid.Server.DataAccess
             var x = reddit.FrontPage;
             var frontPage = reddit.FrontPage.Select((element) =>
             {
-                if (element is (Reddit.Controllers.LinkPost))
+                if (element is LinkPost)
                 {
-                    return Domain.Post.GetLinkPostAutoMapperConfig().Map<Domain.Post>(element);
+                    return mapper.Map<Domain.Post>(element);
                 }
                 else
                 {
-                    return Domain.Post.GetSelfPostAutoMapperConfig().Map<Domain.Post>(element);
+                    return mapper.Map<Domain.Post>(element);
                 }
             }).ToList();
             return Task.FromResult<ICollection<Domain.Post>>(frontPage);

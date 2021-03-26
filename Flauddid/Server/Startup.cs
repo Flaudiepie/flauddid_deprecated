@@ -34,6 +34,7 @@ namespace Flauddid.Server
                                                                 appSecret: Configuration["Reddit:RedditClientSecret"],
                                                                 accessToken: Configuration["Reddit:AccessToken"]));
             services.AddSingleton<IPostService, PostService>();
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
