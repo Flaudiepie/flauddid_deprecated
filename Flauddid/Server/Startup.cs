@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Reddit;
 using System.Linq;
 using Reddit.Models.Converters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Flauddid.Server
 {
@@ -27,13 +28,19 @@ namespace Flauddid.Server
         public void ConfigureServices(IServiceCollection services)
         {
 
+
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+                            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
             services.AddControllersWithViews();
             services.AddRazorPages();
+
             services.AddSingleton((context) => new RedditClient(refreshToken: Configuration["Reddit:RefreshToken"],
                                                                 appId: Configuration["Reddit:RedditClientID"],
                                                                 appSecret: Configuration["Reddit:RedditClientSecret"],
                                                                 accessToken: Configuration["Reddit:AccessToken"]));
             services.AddSingleton<IPostService, PostService>();
+            services.AddSingleton<ICommentsService, CommentsService>();
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
         }
 
@@ -55,13 +62,14 @@ namespace Flauddid.Server
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapControllers();
+                //endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
         }

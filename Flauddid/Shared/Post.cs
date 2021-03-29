@@ -14,8 +14,6 @@ namespace Flauddid.Domain
         public string Title { get; set; }
         public string Author { get; set; }
         public DateTime Created { get; set; }
-
-        [MapTo("")]
         public int DownVotes { get; set; }
         public int UpVotes { get; set; }
         public DateTime Edited { get; set; }

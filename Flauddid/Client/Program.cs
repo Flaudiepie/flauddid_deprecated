@@ -19,8 +19,9 @@ namespace Flauddid.Client
             { 
                 BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) 
             });
-
+            
             builder.Services.AddScoped<IPostService, PostService>();
+            builder.Services.AddScoped<ICommentsService, CommentsService>();
            
             await builder.Build().RunAsync();
         }

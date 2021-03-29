@@ -13,4 +13,11 @@ namespace Flauddid.Domain
         public Task DeleteAsync(T item);
         public Task<T> UpdateAsync(T item);
     }
+    public interface IService<TKey, TValue>
+    {
+        public Task<TValue> GetAsync(TKey key);
+        public Task CreateAsync(TValue item);
+        public Task DeleteAsync(TValue item);
+        public Task<TValue> UpdateAsync(TValue item);
+    }
 }
