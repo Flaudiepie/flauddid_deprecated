@@ -22,7 +22,8 @@ namespace Flauddid.Client
             
             builder.Services.AddScoped<IPostService, PostService>();
             builder.Services.AddScoped<ICommentsService, CommentsService>();
-           
+            builder.Services.AddScoped<ISubRedditService, SubRedditService>();
+
             await builder.Build().RunAsync();
         }
     }

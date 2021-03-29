@@ -24,6 +24,7 @@ namespace Flauddid.Domain
         [MapTo("IsUpvoted")]
         public bool IsUpVoted { get; set; }
         public bool NSFW { get; set; }
+        public bool Spoiler { get; set; }
         public string Path { get; set; }
         public string Content { get; set; }
         public bool Removed { get; set; }

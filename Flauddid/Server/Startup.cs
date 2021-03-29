@@ -42,6 +42,7 @@ namespace Flauddid.Server
                                                                 accessToken: Configuration["Reddit:AccessToken"]));
             services.AddSingleton<IPostService, PostService>();
             services.AddSingleton<ICommentsService, CommentsService>();
+            services.AddSingleton<ISubRedditService, SubRedditService>();
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
             services.AddSwaggerGen(c =>

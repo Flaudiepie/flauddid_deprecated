@@ -20,7 +20,8 @@ namespace Flauddid.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            comments = await CommentsService.GetAsync("mfmeqd");
+            //posts = await PostService.GetAsync();
+            //comments = await CommentsService.GetAsync("mfmeqd");
             await base.OnInitializedAsync();
         }
     }

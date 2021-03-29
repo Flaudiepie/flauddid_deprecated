@@ -15,6 +15,9 @@ namespace Flauddid.Domain
                 .ForMember(dest => dest.Content, opt =>
                 {
                     opt.MapFrom(src => src.SelfText);
+                }).ForMember(dest => dest.Path, opt =>
+                {
+                    opt.MapFrom(src => src.Permalink);
                 });
             CreateMap<Reddit.Controllers.LinkPost, Post>()
                 .ForMember(dest => dest.Content, opt =>
@@ -27,6 +30,12 @@ namespace Flauddid.Domain
                 {
                     opt.MapFrom(src => src.UpvoteRatio);
                 });
+            CreateMap<Reddit.Controllers.Subreddit, SubReddit>()
+                .ForMember(dest => dest.Moderators, opt =>
+                {
+                    opt.MapFrom(src => src.Moderators.Select(x => new Moderator(x.Id, x.Name)).ToList());
+                });
+
         }
     }
 }
