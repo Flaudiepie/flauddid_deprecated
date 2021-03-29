@@ -11,6 +11,7 @@ using Reddit;
 using System.Linq;
 using Reddit.Models.Converters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Models;
 
 namespace Flauddid.Server
 {
@@ -42,6 +43,11 @@ namespace Flauddid.Server
             services.AddSingleton<IPostService, PostService>();
             services.AddSingleton<ICommentsService, CommentsService>();
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Flauddid API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +64,16 @@ namespace Flauddid.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "api/{documentName}/swagger.json";
+            });
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/api/v1/swagger.json", "V1 Docs");
+            });
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
