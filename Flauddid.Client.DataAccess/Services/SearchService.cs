@@ -30,7 +30,7 @@ namespace Flauddid.Client.DataAccess.Services
 
         public async Task<SearchResult> GetAsync(string key)
         {
-            return await httpClient.GetFromJsonAsync<SearchResult>("api/search");
+            return await httpClient.GetFromJsonAsync<SearchResult>($"api/search/{key}");
         }
 
         public Task<SearchResult> UpdateAsync(SearchResult item)
