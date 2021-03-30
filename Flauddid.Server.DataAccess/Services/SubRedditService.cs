@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Flauddid.Domain;
+using Flauddid.Domain.Entities;
+using Flauddid.Domain.Interfaces;
 using Reddit;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flauddid.Server.DataAccess
+namespace Flauddid.Server.DataAccess.Services
 {
     public class SubRedditService : ISubRedditService
     {

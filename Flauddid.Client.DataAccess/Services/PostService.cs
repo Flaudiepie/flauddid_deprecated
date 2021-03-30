@@ -1,4 +1,4 @@
-﻿using Flauddid.Domain;
+﻿using Flauddid.Domain.Interfaces;
 using Reddit.Controllers;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Flauddid.Client.DataAccess
+namespace Flauddid.Client.DataAccess.Services
 {
     public class PostService : IPostService
     {
@@ -20,22 +20,22 @@ namespace Flauddid.Client.DataAccess
             this.httpClient = httpClient;
         }
 
-        public Task CreateAsync(ICollection<Domain.Post> item)
+        public Task CreateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(ICollection<Domain.Post> item)
+        public Task DeleteAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ICollection<Domain.Post>> GetAsync()
+        public async Task<ICollection<Domain.Entities.Post>> GetAsync()
         {
-            return await httpClient.GetFromJsonAsync<List<Domain.Post>>("api/posts" );
+            return await httpClient.GetFromJsonAsync<List<Domain.Entities.Post>>("api/posts" );
         }
 
-        public Task<ICollection<Domain.Post>> UpdateAsync(ICollection<Domain.Post> item)
+        public Task<ICollection<Domain.Entities.Post>> UpdateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
 ﻿using Flauddid.Domain;
+using Flauddid.Domain.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Reddit.Controllers;
 using System;
@@ -15,8 +16,8 @@ namespace Flauddid.Client.Pages
         [Inject]
         public ICommentsService CommentsService { get; set; }
 
-        private ICollection<Domain.Post> posts;
-        private ICollection<Domain.Comment> comments;
+        private ICollection<Domain.Entities.Post> posts;
+        private ICollection<Domain.Entities.Comment> comments;
 
         protected override async Task OnInitializedAsync()
         {

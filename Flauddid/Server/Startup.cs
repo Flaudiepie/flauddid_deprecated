@@ -12,6 +12,8 @@ using System.Linq;
 using Reddit.Models.Converters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
+using Flauddid.Domain.Interfaces;
+using Flauddid.Server.DataAccess.Services;
 
 namespace Flauddid.Server
 {
@@ -43,6 +45,7 @@ namespace Flauddid.Server
             services.AddSingleton<IPostService, PostService>();
             services.AddSingleton<ICommentsService, CommentsService>();
             services.AddSingleton<ISubRedditService, SubRedditService>();
+            services.AddSingleton<ISearchService, SearchService>();
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
             services.AddSwaggerGen(c =>

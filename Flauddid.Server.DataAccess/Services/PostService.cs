@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Flauddid.Domain;
+using Flauddid.Domain.Interfaces;
 using Reddit;
 using Reddit.Controllers;
 using System;
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Flauddid.Server.DataAccess
+namespace Flauddid.Server.DataAccess.Services
 {
     public class PostService : IPostService
     {
@@ -19,34 +19,34 @@ namespace Flauddid.Server.DataAccess
             this.mapper = mapper;
         }
 
-        public Task CreateAsync(ICollection<Domain.Post> item)
+        public Task CreateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(ICollection<Domain.Post> item)
+        public Task DeleteAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<Domain.Post>> GetAsync()
+        public Task<ICollection<Domain.Entities.Post>> GetAsync()
         {
             var x = reddit.FrontPage;
             var frontPage = reddit.FrontPage.Select((element) =>
             {
                 if (element is LinkPost)
                 {
-                    return mapper.Map<Domain.Post>(element);
+                    return mapper.Map<Domain.Entities.Post>(element);
                 }
                 else
                 {
-                    return mapper.Map<Domain.Post>(element);
+                    return mapper.Map<Domain.Entities.Post>(element);
                 }
             }).ToList();
-            return Task.FromResult<ICollection<Domain.Post>>(frontPage);
+            return Task.FromResult<ICollection<Domain.Entities.Post>>(frontPage);
         }
 
-        public Task<ICollection<Domain.Post>> UpdateAsync(ICollection<Domain.Post> item)
+        public Task<ICollection<Domain.Entities.Post>> UpdateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }

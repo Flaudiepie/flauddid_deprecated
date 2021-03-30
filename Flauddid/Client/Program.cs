@@ -1,5 +1,7 @@
 using Flauddid.Client.DataAccess;
+using Flauddid.Client.DataAccess.Services;
 using Flauddid.Domain;
+using Flauddid.Domain.Interfaces;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -23,6 +25,7 @@ namespace Flauddid.Client
             builder.Services.AddScoped<IPostService, PostService>();
             builder.Services.AddScoped<ICommentsService, CommentsService>();
             builder.Services.AddScoped<ISubRedditService, SubRedditService>();
+            builder.Services.AddScoped<ISearchService, SearchService>();
 
             await builder.Build().RunAsync();
         }

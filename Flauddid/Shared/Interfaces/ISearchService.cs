@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Flauddid.Domain.Interfaces
 {
-    public interface ISubRedditService : IService<string, SubReddit>
+    public interface ISearchService : IService<string, SearchResult>
     {
-
     }
 }

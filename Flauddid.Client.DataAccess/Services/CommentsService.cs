@@ -1,4 +1,5 @@
-﻿using Flauddid.Domain;
+﻿using Flauddid.Domain.Entities;
+using Flauddid.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flauddid.Client.DataAccess
+namespace Flauddid.Client.DataAccess.Services
 {
     public class CommentsService : ICommentsService
     {
@@ -28,12 +29,12 @@ namespace Flauddid.Client.DataAccess
             throw new NotImplementedException();
         }
 
-        public async Task<ICollection<Domain.Comment>> GetAsync(string id)
+        public async Task<ICollection<Comment>> GetAsync(string id)
         {
-            return await httpClient.GetFromJsonAsync<ICollection<Domain.Comment>>($"api/comments/{id}");
+            return await httpClient.GetFromJsonAsync<ICollection<Comment>>($"api/comments/{id}");
         }
 
-        public Task<ICollection<Comment>> UpdateAsync(ICollection<Domain.Comment> item)
+        public Task<ICollection<Comment>> UpdateAsync(ICollection<Comment> item)
         {
             throw new NotImplementedException();
         }

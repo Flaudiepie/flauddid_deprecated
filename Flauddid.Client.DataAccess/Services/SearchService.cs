@@ -1,40 +1,39 @@
-﻿using System;
+﻿using Flauddid.Domain.Entities;
+using Flauddid.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Json;
-using Flauddid.Domain.Interfaces;
-using Flauddid.Domain.Entities;
 
 namespace Flauddid.Client.DataAccess.Services
 {
-    public class SubRedditService : ISubRedditService
+    public class SearchService : ISearchService
     {
         private readonly HttpClient httpClient;
-
-        public SubRedditService(HttpClient httpClient)
+        public SearchService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
 
-        public Task CreateAsync(SubReddit item)
+        public Task CreateAsync(SearchResult item)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(SubReddit item)
+        public Task DeleteAsync(SearchResult item)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<SubReddit> GetAsync(string key)
+        public async Task<SearchResult> GetAsync(string key)
         {
-            return await httpClient.GetFromJsonAsync<SubReddit>($"api/subreddit/{key}");
+            return await httpClient.GetFromJsonAsync<SearchResult>("api/search");
         }
 
-        public Task<SubReddit> UpdateAsync(SubReddit item)
+        public Task<SearchResult> UpdateAsync(SearchResult item)
         {
             throw new NotImplementedException();
         }

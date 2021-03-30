@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flauddid.Domain
+namespace Flauddid.Domain.Interfaces
 {
     // excpliciter als ICollection<string> könnte besser sein aka vlt. ein model dafür erstellen
-    public interface IPostService : IService<ICollection<Domain.Post>>
+    public interface IPostService : IService<ICollection<Domain.Entities.Post>>
     {
     }
 }

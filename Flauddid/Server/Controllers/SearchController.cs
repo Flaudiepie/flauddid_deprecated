@@ -11,19 +11,19 @@ namespace Flauddid.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class SubRedditController : Controller
+    public class SearchController : Controller
     {
-        private readonly ISubRedditService subRedditService;
-        public SubRedditController(ISubRedditService subRedditService)
+        private readonly ISearchService searchService;
+        public SearchController(ISearchService searchService)
         {
-            this.subRedditService = subRedditService;
+            this.searchService = searchService;
         }
 
-        [HttpGet("{name}")]
+        [HttpGet("{suchbegriff}")]
         [Produces("application/json")]
-        public async Task<ActionResult<List<Comment>>> GetAsync([FromRoute] string name)
+        public async Task<ActionResult<SearchResult>> GetAsync([FromRoute] string suchbegriff)
         {
-            var x = Ok(await subRedditService.GetAsync(name));
+            var x = Ok(await searchService.GetAsync(suchbegriff));
             return x;
         }
     }

@@ -1,4 +1,6 @@
 ﻿using Flauddid.Domain;
+using Flauddid.Domain.Entities;
+using Flauddid.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

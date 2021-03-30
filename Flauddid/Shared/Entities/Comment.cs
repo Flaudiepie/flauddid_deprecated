@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flauddid.Domain
+namespace Flauddid.Domain.Entities
 {
     public class Comment
     {

@@ -1,4 +1,5 @@
-﻿using Flauddid.Domain;
+﻿using Flauddid.Domain.Interfaces;
+using Flauddid.Server.DataAccess.Utilties;
 using Reddit;
 using Reddit.Controllers;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flauddid.Server.DataAccess
+namespace Flauddid.Server.DataAccess.Services
 {
     public class CommentsService : ICommentsService
     {
@@ -18,23 +19,23 @@ namespace Flauddid.Server.DataAccess
             this.reddit = reddit;
         }
 
-        public Task CreateAsync(ICollection<Domain.Comment> item)
+        public Task CreateAsync(ICollection<Domain.Entities.Comment> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(ICollection<Domain.Comment> item)
+        public Task DeleteAsync(ICollection<Domain.Entities.Comment> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<Domain.Comment>> GetAsync(string id)
+        public Task<ICollection<Domain.Entities.Comment>> GetAsync(string id)
         {
             var comments = new Comments(reddit.Account.Dispatch, postId: id);
             return Task.FromResult(CommentUtilities.BuildCommentTree(comments.GetComments()));
         }
 
-        public Task<ICollection<Domain.Comment>> UpdateAsync(ICollection<Domain.Comment> item)
+        public Task<ICollection<Domain.Entities.Comment>> UpdateAsync(ICollection<Domain.Entities.Comment> item)
         {
             throw new NotImplementedException();
         }
