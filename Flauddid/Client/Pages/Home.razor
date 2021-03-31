@@ -1,0 +1,20 @@
+﻿@page "/"
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        @if (posts is not null)
+        {
+            foreach (var x in posts)
+            {
+                <div class="card" style="background-color: #1f1f1f">
+                    <div class="card-header">
+                        <p>@x.Title</p>
+                    </div>
+                    <div class="card-body">
+                        <p>@x.Content</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

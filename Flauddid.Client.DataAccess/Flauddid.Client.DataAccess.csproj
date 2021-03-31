@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Services\posts.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Reddit" Version="1.5.0" />
   </ItemGroup>
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Flauddid.Client.Pages
 {
-    partial class Index : ComponentBase
+    partial class Home : ComponentBase
     {
         [Inject]
         public IPostService PostService { get; set; }
@@ -21,7 +21,7 @@ namespace Flauddid.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            //posts = await PostService.GetAsync();
+            posts = await PostService.GetAsync();
             //comments = await CommentsService.GetAsync("mfmeqd");
             await base.OnInitializedAsync();
         }

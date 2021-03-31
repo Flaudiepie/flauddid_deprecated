@@ -32,7 +32,7 @@ namespace Flauddid.Client.DataAccess.Services
 
         public async Task<ICollection<Domain.Entities.Post>> GetAsync()
         {
-            return await httpClient.GetFromJsonAsync<List<Domain.Entities.Post>>("api/posts" );
+            return await httpClient.GetFromJsonAsync<List<Domain.Entities.Post>>("posts.json" );
         }
 
         public Task<ICollection<Domain.Entities.Post>> UpdateAsync(ICollection<Domain.Entities.Post> item)
