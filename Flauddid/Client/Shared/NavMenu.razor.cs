@@ -16,7 +16,10 @@ namespace Flauddid.Client.Shared
 
         protected async Task GetSearchResults()
         {
-            var x = await searchService.GetAsync(searchInput);
+            if (!string.IsNullOrWhiteSpace(searchInput))
+            {
+                var x = await searchService.GetAsync(searchInput);
+            }
         }
     }
 }
