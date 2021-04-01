@@ -19,12 +19,14 @@ namespace Flauddid.Server
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -42,10 +44,19 @@ namespace Flauddid.Server
                                                                 appId: Configuration["Reddit:RedditClientID"],
                                                                 appSecret: Configuration["Reddit:RedditClientSecret"],
                                                                 accessToken: Configuration["Reddit:AccessToken"]));
-            services.AddSingleton<IPostService, PostService>();
-            services.AddSingleton<ICommentsService, CommentsService>();
-            services.AddSingleton<ISubRedditService, SubRedditService>();
             services.AddSingleton<ISearchService, SearchService>();
+            if (Environment.IsDevelopment())
+            {
+                services.AddSingleton<IPostService, PostExampleService>();
+                services.AddSingleton<ICommentsService, CommentExampleService>();
+                services.AddSingleton<ISubRedditService, SubRedditExampleService>();
+            }
+            else
+            {
+                services.AddSingleton<IPostService, PostService>();
+                services.AddSingleton<ICommentsService, CommentsService>();
+                services.AddSingleton<ISubRedditService, SubRedditService>();
+            }
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
             services.AddSwaggerGen(c =>
