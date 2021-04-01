@@ -1,12 +1,12 @@
 ﻿@page "/"
 
 <div class="row">
-    <div class="col-md-6 offset-md-3" style="margin-top: 3rem">
+    <div class="col-md-4 offset-md-4" style="margin-top: 3rem">
         @if (posts is not null)
         {
             foreach (var x in posts)
             {
-                <Post Title="@x.Title" Author="@x.Author" Content="@x.Content" />
+                <Post Title="@x.Title" Author="@x.Author" Content="@x.Content" PostType="@x.PostType"/>
             }
         }
         else

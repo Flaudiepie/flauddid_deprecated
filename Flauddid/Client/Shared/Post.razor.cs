@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Flauddid.Domain.Entities;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace Flauddid.Client.Shared
         public string Content { get; set; }
         [Parameter]
         public string Author { get; set; }
+        [Parameter]
+        public PostType PostType { get; set; }
     }
 }
