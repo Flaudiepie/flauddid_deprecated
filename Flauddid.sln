@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flauddid.Client", "Flauddid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flauddid.Domain", "Flauddid\Shared\Flauddid.Domain.csproj", "{A547235E-3B52-4D24-8E8A-99B77B053B75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flauddid.Client.DataAccess", "Flauddid.Client.DataAccess\Flauddid.Client.DataAccess.csproj", "{5960B6A4-C0DC-49B2-AA24-561763C1490E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flauddid.Client.DataAccess", "Flauddid.Client.DataAccess\Flauddid.Client.DataAccess.csproj", "{5960B6A4-C0DC-49B2-AA24-561763C1490E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flauddid.Server.DataAccess", "Flauddid.Server.DataAccess\Flauddid.Server.DataAccess.csproj", "{32BFF130-6C94-4A37-B31C-09DB22FB4468}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flauddid.Server.DataAccess", "Flauddid.Server.DataAccess\Flauddid.Server.DataAccess.csproj", "{32BFF130-6C94-4A37-B31C-09DB22FB4468}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

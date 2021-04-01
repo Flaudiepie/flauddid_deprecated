@@ -32,5 +32,6 @@ namespace Flauddid.Domain.Entities
         public double UpVodeRatio { get; set; }
         public string Subreddit { get; set; }
         public string URL { get; set; }
+        public PostType PostType { get; set; }
     }
 }

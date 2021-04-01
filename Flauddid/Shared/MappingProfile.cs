@@ -19,6 +19,9 @@ namespace Flauddid.Domain
                 }).ForMember(dest => dest.Path, opt =>
                 {
                     opt.MapFrom(src => src.Permalink);
+                }).ForMember(dest => dest.PostType, opt =>
+                {
+                    opt.MapFrom(src => PostType.TextOnly);
                 });
             CreateMap<Reddit.Controllers.LinkPost, Post>()
                 .ForMember(dest => dest.Content, opt =>
@@ -30,6 +33,9 @@ namespace Flauddid.Domain
                 }).ForMember(dest => dest.UpVodeRatio, opt =>
                 {
                     opt.MapFrom(src => src.UpvoteRatio);
+                }).ForMember(dest => dest.PostType, opt =>
+                {
+                    opt.MapFrom(src => src.Listing.Media != null ? PostType.Video : PostType.Image);
                 });
             CreateMap<Reddit.Controllers.Subreddit, SubReddit>()
                 .ForMember(dest => dest.Moderators, opt =>
