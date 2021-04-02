@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Flauddid.Server.DataAccess.Services
 {
-    public class PostExampleService : IPostService
+    public class PostExampleService : IPostsService
     {
         public Task CreateAsync(ICollection<Post> item)
         {

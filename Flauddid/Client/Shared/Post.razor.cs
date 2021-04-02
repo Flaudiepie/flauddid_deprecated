@@ -12,6 +12,8 @@ namespace Flauddid.Client.Shared
         [Parameter]
         public Domain.Entities.Post post { get; set; }
         private string Votes { get; set; }
+        [Inject]
+        private NavigationManager NavigationManager { get; set; }
 
         protected override Task OnParametersSetAsync()
         {
@@ -25,6 +27,11 @@ namespace Flauddid.Client.Shared
                 Votes = post.UpVotes.ToString();
             }
             return base.OnParametersSetAsync();
+        }
+
+        protected void OpenPost()
+        {
+            NavigationManager.NavigateTo($"/r/{post.Subreddit}/{post.Id}");
         }
     }
 }

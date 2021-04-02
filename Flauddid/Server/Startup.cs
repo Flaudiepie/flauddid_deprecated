@@ -45,15 +45,16 @@ namespace Flauddid.Server
                                                                 appSecret: Configuration["Reddit:RedditClientSecret"],
                                                                 accessToken: Configuration["Reddit:AccessToken"]));
             services.AddSingleton<ISearchService, SearchService>();
+            services.AddSingleton<IPostService, PostService>();
             if (Environment.IsDevelopment())
             {
-                services.AddSingleton<IPostService, PostExampleService>();
+                services.AddSingleton<IPostsService, PostExampleService>();
                 services.AddSingleton<ICommentsService, CommentExampleService>();
                 services.AddSingleton<ISubRedditService, SubRedditExampleService>();
             }
             else
             {
-                services.AddSingleton<IPostService, PostService>();
+                services.AddSingleton<IPostsService, PostsService>();
                 services.AddSingleton<ICommentsService, CommentsService>();
                 services.AddSingleton<ISubRedditService, SubRedditService>();
             }

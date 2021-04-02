@@ -1,5 +1,4 @@
-﻿using Flauddid.Domain.Entities;
-using Flauddid.Domain.Interfaces;
+﻿using Flauddid.Domain.Interfaces;
 using Reddit.Controllers;
 using System;
 using System.Collections.Generic;
@@ -12,32 +11,31 @@ using System.Threading.Tasks;
 
 namespace Flauddid.Client.DataAccess.Services
 {
-    public class PostService : IPostService
+    public class PostsService : IPostsService
     {
         private readonly HttpClient httpClient;
 
-        public PostService(HttpClient httpClient)
+        public PostsService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
 
-        public Task CreateAsync(Domain.Entities.Post item)
+        public Task CreateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(Domain.Entities.Post item)
+        public Task DeleteAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Domain.Entities.Post> GetAsync(PostInfo key)
+        public async Task<ICollection<Domain.Entities.Post>> GetAsync()
         {
-            return await httpClient.GetFromJsonAsync<Domain.Entities.Post>($"api/posts/{key.SubReddit}/{key.ID}");
-
+            return await httpClient.GetFromJsonAsync<List<Domain.Entities.Post>>("api/posts" );
         }
 
-        public Task<Domain.Entities.Post> UpdateAsync(Domain.Entities.Post item)
+        public Task<ICollection<Domain.Entities.Post>> UpdateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }

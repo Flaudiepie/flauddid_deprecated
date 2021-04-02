@@ -1,24 +1,23 @@
-﻿using Flauddid.Domain.Entities;
+﻿using AutoMapper;
+using Flauddid.Domain.Entities;
 using Flauddid.Domain.Interfaces;
+using Reddit;
 using Reddit.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Flauddid.Client.DataAccess.Services
+namespace Flauddid.Server.DataAccess.Services
 {
     public class PostService : IPostService
     {
-        private readonly HttpClient httpClient;
-
-        public PostService(HttpClient httpClient)
+        private readonly RedditClient reddit;
+        private readonly IMapper mapper;
+        public PostService(RedditClient reddit, IMapper mapper)
         {
-            this.httpClient = httpClient;
+            this.reddit = reddit;
+            this.mapper = mapper;
         }
 
         public Task CreateAsync(Domain.Entities.Post item)
@@ -31,10 +30,10 @@ namespace Flauddid.Client.DataAccess.Services
             throw new NotImplementedException();
         }
 
-        public async Task<Domain.Entities.Post> GetAsync(PostInfo key)
+        public Task<Domain.Entities.Post> GetAsync(PostInfo key)
         {
-            return await httpClient.GetFromJsonAsync<Domain.Entities.Post>($"api/posts/{key.SubReddit}/{key.ID}");
-
+            var post = reddit.Subreddit(key.SubReddit).Post($"t3_{key.ID}").About();
+            return Task.FromResult(mapper.Map<Domain.Entities.Post>(post));
         }
 
         public Task<Domain.Entities.Post> UpdateAsync(Domain.Entities.Post item)

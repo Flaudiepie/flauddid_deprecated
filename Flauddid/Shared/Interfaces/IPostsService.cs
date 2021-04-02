@@ -1,5 +1,4 @@
-﻿using Flauddid.Domain.Entities;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Reddit.Controllers;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 namespace Flauddid.Domain.Interfaces
 {
     // excpliciter als ICollection<string> könnte besser sein aka vlt. ein model dafür erstellen
-    public interface IPostService : IService<PostInfo, Domain.Entities.Post>
+    public interface IPostsService : IService<ICollection<Domain.Entities.Post>>
     {
     }
 }

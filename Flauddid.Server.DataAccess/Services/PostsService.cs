@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Flauddid.Server.DataAccess.Services
 {
-    public class PostService : IPostService
+    public class PostsService : IPostsService
     {
         private readonly RedditClient reddit;
         private readonly IMapper mapper;
-        public PostService(RedditClient reddit, IMapper mapper)
+        public PostsService(RedditClient reddit, IMapper mapper)
         {
             this.reddit = reddit;
             this.mapper = mapper;

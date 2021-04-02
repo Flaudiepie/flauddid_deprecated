@@ -12,7 +12,7 @@ namespace Flauddid.Client.Pages
     partial class Home : ComponentBase
     {
         [Inject]
-        public IPostService PostService { get; set; }
+        public IPostsService PostsService { get; set; }
         [Inject]
         public ICommentsService CommentsService { get; set; }
 
@@ -21,7 +21,7 @@ namespace Flauddid.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            posts = await PostService.GetAsync();
+            posts = await PostsService.GetAsync();
             //comments = await CommentsService.GetAsync("mfmeqd");
             await base.OnInitializedAsync();
         }
