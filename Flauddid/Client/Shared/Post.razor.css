@@ -1,14 +1,41 @@
-﻿.mediaMargin{
+﻿.mediaMargin {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     padding-bottom: 2rem;
 }
 
-.fontDesign p{
+.fontDesign p {
     font-size: 12px;
     font-weight: 300;
+    color: #f8f9fa !important;
 }
 
-.fontDesign h3{
+.fontDesign h3 {
     font-size: 18px;
+    color: #f8f9fa !important;
+}
+
+.voteButton{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.voteButton a {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.voteButton span {
+    color: #f8f9fa !important;
+    font-size: 18px;
+}
+
+.voteButton div {
+    font-size: 12px;
+    margin: 0px;
+    color: #f8f9fa !important;
 }

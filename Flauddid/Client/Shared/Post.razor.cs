@@ -17,5 +17,22 @@ namespace Flauddid.Client.Shared
         public string Author { get; set; }
         [Parameter]
         public PostType PostType { get; set; }
+        [Parameter]
+        public double UpVotes { get; set; }
+        private string Votes { get; set; }
+
+        protected override Task OnParametersSetAsync()
+        {
+            if (UpVotes > 999)
+            {
+                Votes = Math.Round((UpVotes / 1000), 1).ToString();
+                Votes += "k";
+            }
+            else
+            {
+                Votes = UpVotes.ToString();
+            }
+            return base.OnParametersSetAsync();
+        }
     }
 }
