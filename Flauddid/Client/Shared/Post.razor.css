@@ -4,21 +4,28 @@
     padding-bottom: 2rem;
 }
 
+.postCard {
+    color: #f8f9fa !important;
+    margin-bottom: 2rem;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
 .fontDesign p {
     font-size: 12px;
     font-weight: 300;
-    color: #f8f9fa !important;
 }
 
 .fontDesign h3 {
     font-size: 18px;
-    color: #f8f9fa !important;
 }
 
 .voteButton{
     align-items: center;
     flex-direction: column;
     display: flex;
+    padding-top: 10px;
 }
 
 .voteButton a {
@@ -30,12 +37,41 @@
 }
 
 .voteButton span {
-    color: #f8f9fa !important;
     font-size: 18px;
 }
 
 .voteButton div {
     font-size: 12px;
     margin: 0px;
-    color: #f8f9fa !important;
+}
+
+.postInfo{
+    font-size: 9px;
+    padding-top: 2px;
+}
+
+.postButtons a{
+    align-items: center;
+    display: flex;
+    font-size: 9px;
+    padding: 9px;
+    cursor: pointer;
+    margin-right: 4px;
+    font-weight: bolder;
+}
+
+.postButtons span{
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+}
+
+
+.secondaryBtnColor {
+    color: #757575!important;
+}
+
+.title{
+    margin-left: 8px;
 }

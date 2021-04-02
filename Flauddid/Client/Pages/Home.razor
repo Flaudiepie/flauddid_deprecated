@@ -4,9 +4,9 @@
     <div class="col-md-4 offset-md-4" style="margin-top: 3rem">
         @if (posts is not null)
         {
-            foreach (var x in posts)
+            foreach (var post in posts)
             {
-                <Post Title="@x.Title" Author="@x.Author" Content="@x.Content" PostType="@x.PostType" UpVotes="@x.UpVotes"/>
+                <Post post="@post"/>
             }
         }
         else
