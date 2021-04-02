@@ -1,11 +1,9 @@
-﻿<nav class="navbar navbar-dark bg-dark justify-content-between row text-light">
-    <div class="col">
+﻿<nav class="navbar navbar-dark darkBackground fixed-top row">
+    <div class="container-fluid">
         <NavLink class="navbar-brand" Match="NavLinkMatch.All" href="">Flauddid</NavLink>
-    </div>
-    <div class="col-xs-auto">
-        <form class="form-inline container">
-            <input class="form-control mr-sm-2 col" required type="text" placeholder="Search" aria-label="Search" @bind="@searchInput">
-            <button class="btn btn-outline-success my-2 my-sm-0 col-3" type="button" @onclick="GetSearchResults">Search</button>
-        </form>
+        @*<form class="d-flex">
+            <input class="form-control me-2" required type="text" placeholder="Search" aria-label="Search" @bind="@searchInput">
+            <button class="btn btn-outline-success" type="button" @onclick="GetSearchResults">Search</button>
+        </form>*@
     </div>
 </nav>
