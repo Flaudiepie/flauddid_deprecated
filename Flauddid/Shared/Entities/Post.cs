@@ -17,12 +17,7 @@ namespace Flauddid.Domain.Entities
         public int DownVotes { get; set; }
         public int UpVotes { get; set; }
         public DateTime Edited { get; set; }
-
-        [MapTo("IsDownvoted")]
-        public bool IsDownVoted { get; set; }
-
-        [MapTo("IsUpvoted")]
-        public bool IsUpVoted { get; set; }
+        public VoteState VoteState { get; set; }
         public bool NSFW { get; set; }
         public bool Spoiler { get; set; }
         public string Path { get; set; }

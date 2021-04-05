@@ -22,6 +22,9 @@ namespace Flauddid.Domain
                 }).ForMember(dest => dest.PostType, opt =>
                 {
                     opt.MapFrom(src => PostType.TextOnly);
+                }).ForMember(dest => dest.VoteState, opt => 
+                {
+                    opt.MapFrom(src => GetVoteState(src.IsDownvoted, src.IsUpvoted));
                 });
             CreateMap<Reddit.Controllers.LinkPost, Post>()
                 .ForMember(dest => dest.Content, opt =>
@@ -43,6 +46,22 @@ namespace Flauddid.Domain
                     opt.MapFrom(src => src.Moderators.Select(x => new Moderator(x.Id, x.Name)).ToList());
                 });
 
+        }
+
+        private static VoteState GetVoteState(bool DownVoted, bool UpVoted)
+        {
+            if (UpVoted)
+            {
+                return VoteState.Up;
+            }
+            else if (DownVoted)
+            {
+                return VoteState.Down;
+            }
+            else
+            {
+                return VoteState.Neutral;
+            }
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Flauddid.Client.DataAccess.Services
             return await httpClient.GetFromJsonAsync<ICollection<Comment>>($"api/comments/{id}");
         }
 
-        public Task<ICollection<Comment>> UpdateAsync(ICollection<Comment> item)
+        public Task UpdateAsync(ICollection<Comment> item)
         {
             throw new NotImplementedException();
         }

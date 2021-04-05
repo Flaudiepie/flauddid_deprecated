@@ -36,9 +36,22 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult(mapper.Map<Domain.Entities.Post>(post));
         }
 
-        public Task<Domain.Entities.Post> UpdateAsync(Domain.Entities.Post item)
+        public Task UpdateAsync(Domain.Entities.Post post)
         {
-            throw new NotImplementedException();
+            var originalPost = new Reddit.Controllers.Post(reddit.Account.Dispatch, id: post.Id, subreddit: post.Subreddit);
+            if (post.VoteState == VoteState.Up)
+            {
+                originalPost.Upvote();
+            }
+            else if (post.VoteState == VoteState.Down)
+            {
+                originalPost.Downvote();
+            }
+            else
+            {
+                originalPost.Unvote();
+            }
+            return Task.CompletedTask;
         }
     }
 }

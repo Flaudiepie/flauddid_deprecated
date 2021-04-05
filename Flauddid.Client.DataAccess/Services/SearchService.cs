@@ -33,7 +33,7 @@ namespace Flauddid.Client.DataAccess.Services
             return await httpClient.GetFromJsonAsync<SearchResult>($"api/search/{key}");
         }
 
-        public Task<SearchResult> UpdateAsync(SearchResult item)
+        public Task UpdateAsync(SearchResult item)
         {
             throw new NotImplementedException();
         }

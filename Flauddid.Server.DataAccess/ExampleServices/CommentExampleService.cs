@@ -28,7 +28,7 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult(JsonSerializer.Deserialize<ICollection<Comment>>(jsonFile));
         }
 
-        public Task<ICollection<Comment>> UpdateAsync(ICollection<Comment> item)
+        public Task UpdateAsync(ICollection<Comment> item)
         {
             throw new NotImplementedException();
         }

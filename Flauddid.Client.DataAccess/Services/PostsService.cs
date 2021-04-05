@@ -35,7 +35,7 @@ namespace Flauddid.Client.DataAccess.Services
             return await httpClient.GetFromJsonAsync<List<Domain.Entities.Post>>("api/posts" );
         }
 
-        public Task<ICollection<Domain.Entities.Post>> UpdateAsync(ICollection<Domain.Entities.Post> item)
+        public Task UpdateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }

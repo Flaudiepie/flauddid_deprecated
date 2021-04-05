@@ -44,7 +44,7 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult(new SearchResult(resultSubReddits, resultPosts));
         }
 
-        public Task<SearchResult> UpdateAsync(SearchResult item)
+        public Task UpdateAsync(SearchResult item)
         {
             throw new NotImplementedException();
         }

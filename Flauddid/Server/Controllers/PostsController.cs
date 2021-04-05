@@ -25,15 +25,20 @@ namespace Flauddid.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<ICollection<Post>>> GetAsync()
         {
-            var x = Ok(await postsService.GetAsync());
-            return x;
+            return Ok(await postsService.GetAsync());
         }
 
         [HttpGet("{subreddit}/{id}")]
         public async Task<ActionResult<Post>> GetAsync(string id, string subreddit)
         {
-            var x = Ok(await postService.GetAsync(new PostInfo(subreddit, id)));
-            return x;
+            return Ok(await postService.GetAsync(new PostInfo(subreddit, id)));
+        }
+
+        [HttpPut("vote")]
+        public async Task<ActionResult<Post>> UpdateAsync([FromBody] Post post)
+        {
+            await postService.UpdateAsync(post);
+            return Ok();
         }
     }
 }

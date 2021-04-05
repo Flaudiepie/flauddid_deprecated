@@ -28,7 +28,7 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult(JsonSerializer.Deserialize<ICollection<Post>>(jsonFile));
         }
 
-        public Task<ICollection<Post>> UpdateAsync(ICollection<Post> item)
+        public Task UpdateAsync(ICollection<Post> item)
         {
             throw new NotImplementedException();
         }

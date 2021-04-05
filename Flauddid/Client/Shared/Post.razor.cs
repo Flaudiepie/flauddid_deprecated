@@ -1,4 +1,5 @@
 ﻿using Flauddid.Domain.Entities;
+using Flauddid.Domain.Interfaces;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace Flauddid.Client.Shared
         private string Votes { get; set; }
         [Inject]
         private NavigationManager NavigationManager { get; set; }
+        [Inject]
+        private IPostService postService { get; set; }
 
         protected override Task OnParametersSetAsync()
         {
@@ -32,6 +35,18 @@ namespace Flauddid.Client.Shared
         protected void OpenPost()
         {
             NavigationManager.NavigateTo($"/r/{post.Subreddit}/{post.Id}");
+        }
+
+        protected void PostUpVote()
+        {
+            post.VoteState = post.VoteState == VoteState.Up ? VoteState.Neutral : VoteState.Up;
+            postService.UpdateAsync(post);
+        }
+
+        protected void PostDownVote()
+        {
+            post.VoteState = post.VoteState == VoteState.Down ? VoteState.Neutral : VoteState.Down;
+            postService.UpdateAsync(post);
         }
     }
 }

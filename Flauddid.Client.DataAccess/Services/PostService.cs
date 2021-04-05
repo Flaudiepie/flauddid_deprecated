@@ -37,9 +37,9 @@ namespace Flauddid.Client.DataAccess.Services
 
         }
 
-        public Task<Domain.Entities.Post> UpdateAsync(Domain.Entities.Post item)
+        public async Task UpdateAsync(Domain.Entities.Post item)
         {
-            throw new NotImplementedException();
+            await httpClient.PutAsJsonAsync($"api/posts/vote", item);
         }
     }
 }

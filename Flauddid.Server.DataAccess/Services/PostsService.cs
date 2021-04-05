@@ -46,7 +46,7 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult<ICollection<Domain.Entities.Post>>(frontPage);
         }
 
-        public Task<ICollection<Domain.Entities.Post>> UpdateAsync(ICollection<Domain.Entities.Post> item)
+        public Task UpdateAsync(ICollection<Domain.Entities.Post> item)
         {
             throw new NotImplementedException();
         }

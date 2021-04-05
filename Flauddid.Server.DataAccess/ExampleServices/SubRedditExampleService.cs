@@ -28,7 +28,7 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult(JsonSerializer.Deserialize<SubReddit>(jsonFile));
         }
 
-        public Task<SubReddit> UpdateAsync(SubReddit item)
+        public Task UpdateAsync(SubReddit item)
         {
             throw new NotImplementedException();
         }

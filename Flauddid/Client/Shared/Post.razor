@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-sm-1" style="background-color: #262626!important; border-radius: 10px 0px 0px 10px">
             <div class="voteButton">
-                <a><span class="material-icons secondaryBtnColor">arrow_upward</span></a>
-                <div>@Votes</div>
-                <a><span class="material-icons secondaryBtnColor" style="transform: rotate(180deg)">arrow_upward</span></a>
+                <a><span class="material-icons" style="@(post.VoteState == Domain.Entities.VoteState.Up ? "color: orange" : "")" @onclick="PostUpVote">arrow_upward</span></a>
+                <div style="@(post.VoteState == Domain.Entities.VoteState.Up || post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")">@Votes</div>
+                <a><span class="material-icons" style="transform: rotate(180deg); @(post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")" @onclick="PostDownVote">arrow_upward</span></a>
             </div>
         </div>
         <div class="col-sm-11">

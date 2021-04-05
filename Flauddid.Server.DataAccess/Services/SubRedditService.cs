@@ -38,7 +38,7 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult(mapper.Map<SubReddit>(subReddit));
         }
 
-        public Task<SubReddit> UpdateAsync(SubReddit item)
+        public Task UpdateAsync(SubReddit item)
         {
             throw new NotImplementedException();
         }

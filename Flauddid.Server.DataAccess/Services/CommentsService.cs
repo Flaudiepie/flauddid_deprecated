@@ -35,7 +35,7 @@ namespace Flauddid.Server.DataAccess.Services
             return Task.FromResult(CommentUtilities.BuildCommentTree(comments.GetComments()));
         }
 
-        public Task<ICollection<Domain.Entities.Comment>> UpdateAsync(ICollection<Domain.Entities.Comment> item)
+        public Task UpdateAsync(ICollection<Domain.Entities.Comment> item)
         {
             throw new NotImplementedException();
         }

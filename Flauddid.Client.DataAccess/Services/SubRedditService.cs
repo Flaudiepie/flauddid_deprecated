@@ -34,7 +34,7 @@ namespace Flauddid.Client.DataAccess.Services
             return await httpClient.GetFromJsonAsync<SubReddit>($"api/subreddit/{key}");
         }
 
-        public Task<SubReddit> UpdateAsync(SubReddit item)
+        public Task UpdateAsync(SubReddit item)
         {
             throw new NotImplementedException();
         }
