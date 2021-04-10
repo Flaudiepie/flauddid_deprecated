@@ -15,8 +15,21 @@
             <div class="row d-flex flex-row" @onclick="OpenPost" style="cursor: pointer">
                 <h3 class="title">@post.Title</h3>
             </div>
-            <div class="row" @onclick="OpenPost" style="cursor: pointer">
-                <img class="img-fluid" src="@post.Content" />
+            <div class="row content" @onclick="OpenPost" style="cursor: pointer">
+                @switch (post.PostType)
+                {
+                    case Domain.Entities.PostType.Image:
+                        <img class="img-fluid" src="@post.Content" />
+                        break;
+                    case Domain.Entities.PostType.TextOnly:
+                        <p class="overflow-auto customScrolbar">@post.Content</p>
+                        break;
+                    case Domain.Entities.PostType.Video:
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
+                        </div>
+                        break;
+                }
             </div>
             <div class="row d-flex flex-row secondaryBtnColor postButtons" style="background-color: #262626!important; border-radius: 0px 0px 10px 0px;">
                 <a><span class="material-icons">forum</span>Comments</a>
@@ -29,7 +42,7 @@
 
 @*<div class="card mb-3 text-light border-secondary fontDesign" style="background-color: #2b2b2b; max-height: 500px">
         @switch (PostType)
-        {
+                    {
             case Domain.Entities.PostType.Image:
                 <div class="card-body">
                     <h3 class="card-title">@Title</h3>

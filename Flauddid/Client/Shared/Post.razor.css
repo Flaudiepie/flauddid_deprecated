@@ -80,3 +80,9 @@
 .title{
     margin-left: 8px;
 }
+
+.content p{
+    max-height: 300px;
+    font-size: 11px!important;
+    margin-left: 8px;
+}

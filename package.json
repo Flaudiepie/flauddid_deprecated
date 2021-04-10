@@ -1,0 +1,21 @@
+{
+  "name": "flauddid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "buildcss": "postcss Flauddid/Client/wwwroot/css/app.css -o Flauddid/Client/wwwroot/css/app.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://boese.ovh:1337/Flaudiepie/flauddid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.9",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.1"
+  }
+}
