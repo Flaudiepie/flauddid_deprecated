@@ -1,35 +1,48 @@
-﻿<div class="container postCard fontDesign" style="background-color: #242424!important">
-    <div class="row">
-        <div class="col-sm-1" style="background-color: #262626!important; border-radius: 10px 0px 0px 10px">
-            <div class="voteButton">
-                <a><span class="material-icons" style="@(post.VoteState == Domain.Entities.VoteState.Up ? "color: orange" : "")" @onclick="PostUpVote">arrow_upward</span></a>
-                <div style="@(post.VoteState == Domain.Entities.VoteState.Up || post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")">@Votes</div>
-                <a><span class="material-icons" style="transform: rotate(180deg); @(post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")" @onclick="PostDownVote">arrow_upward</span></a>
-            </div>
+﻿<div class="grid grid-cols-12 bg-gray-800 text-white mt-8 rounded-lg">
+    <div class="bg-gray-800" style="border-radius: 10px 0px 0px 10px">
+        <div class="voteButton">
+            <a><span class="material-icons" style="@(post.VoteState == Domain.Entities.VoteState.Up ? "color: orange" : "")" @onclick="PostUpVote">arrow_upward</span></a>
+            <div style="@(post.VoteState == Domain.Entities.VoteState.Up || post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")">@Votes</div>
+            <a><span class="material-icons" style="@(post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")" @onclick="PostDownVote">arrow_downward</span></a>
         </div>
-        <div class="col-sm-11">
-            <div class="row d-flex flex-row postInfo" @onclick="OpenPost" style="cursor: pointer">
-                <div class="p-2">r/@post.Subreddit</div>
-                <div class="p-2 secondaryBtnColor">by u/@post.Author</div>
+    </div>
+    <div class="col-span-11">
+        <div class="grid grid-flow-row auto-rows-max">
+            <div class="flex postInfo" @onclick="OpenPost" style="cursor: pointer">
+                <div class="p-2 flex-initial">r/@post.Subreddit</div>
+                <div class="p-2 flex-initial secondaryBtnColor">by u/@post.Author</div>
             </div>
-            <div class="row d-flex flex-row" @onclick="OpenPost" style="cursor: pointer">
+            <div class="" @onclick="OpenPost" style="cursor: pointer">
                 <h3 class="title">@post.Title</h3>
             </div>
-            <div class="row" @onclick="OpenPost" style="cursor: pointer">
-                <img class="img-fluid" src="@post.Content" />
+            <div class="content" @onclick="OpenPost" style="cursor: pointer">
+                @switch (post.PostType)
+                {
+                    case Domain.Entities.PostType.Image:
+                        <img class="img-fluid" src="@post.Content" />
+                        break;
+                    case Domain.Entities.PostType.TextOnly:
+                        <p class="overflow-auto customScrolbar">@post.Content</p>
+                        break;
+                    case Domain.Entities.PostType.Video:
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
+                        </div>
+                        break;
+                }
             </div>
-            <div class="row d-flex flex-row secondaryBtnColor postButtons" style="background-color: #262626!important; border-radius: 0px 0px 10px 0px;">
-                <a><span class="material-icons">forum</span>Comments</a>
-                <a><span class="material-icons">share</span>Share</a>
-                <a><span class="material-icons">archive</span>Save</a>
-            </div>
+        </div>
+        <div class="flex secondaryBtnColor postButtons bg-gray-800" style=" border-radius: 0px 0px 10px 0px;">
+            <a class="flex-initial"><span class="material-icons">forum</span>Comments</a>
+            <a class="flex-initial"><span class="material-icons">share</span>Share</a>
+            <a class="flex-initial"><span class="material-icons">archive</span>Save</a>
         </div>
     </div>
 </div>
 
 @*<div class="card mb-3 text-light border-secondary fontDesign" style="background-color: #2b2b2b; max-height: 500px">
         @switch (PostType)
-        {
+                    {
             case Domain.Entities.PostType.Image:
                 <div class="card-body">
                     <h3 class="card-title">@Title</h3>

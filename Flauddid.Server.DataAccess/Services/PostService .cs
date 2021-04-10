@@ -38,14 +38,16 @@ namespace Flauddid.Server.DataAccess.Services
 
         public Task UpdateAsync(Domain.Entities.Post post)
         {
-            var originalPost = new Reddit.Controllers.Post(reddit.Account.Dispatch, id: post.Id, subreddit: post.Subreddit);
+            var originalPost = new Reddit.Controllers.Post(reddit.Account.Dispatch, id: post.Id, subreddit: post.Subreddit).Info();
             switch (post.VoteState)
             {
                 case VoteState.Up:
-                    originalPost.Upvote();
+                    if (!originalPost.IsUpvoted)
+                        originalPost.Upvote();
                     break;
                 case VoteState.Down:
-                    originalPost.Downvote();
+                    if (!originalPost.IsDownvoted)
+                        originalPost.Downvote();
                     break;
                 default:
                     originalPost.Unvote();
