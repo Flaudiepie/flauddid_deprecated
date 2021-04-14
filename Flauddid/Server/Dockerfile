@@ -7,7 +7,6 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build
 RUN apk --update add nodejs npm
-RUN npm install
 WORKDIR /src
 COPY ["Flauddid/Server/Flauddid.Server.csproj", "Flauddid/Server/"]
 COPY ["Flauddid/Client/Flauddid.Client.csproj", "Flauddid/Client/"]
@@ -16,6 +15,7 @@ COPY ["Flauddid/Shared/Flauddid.Domain.csproj", "Flauddid/Shared/"]
 COPY ["Flauddid.Server.DataAccess/Flauddid.Server.DataAccess.csproj", "Flauddid.Server.DataAccess/"]
 RUN dotnet restore "Flauddid/Server/Flauddid.Server.csproj"
 COPY . .
+RUN npm install
 WORKDIR "/src/Flauddid/Server"
 RUN dotnet build "Flauddid.Server.csproj" -c Release -o /app/build
 
