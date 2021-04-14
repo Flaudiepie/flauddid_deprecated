@@ -46,7 +46,7 @@ namespace Flauddid.Server
                                                                 accessToken: Configuration["Reddit:AccessToken"]));
             services.AddSingleton<ISearchService, SearchService>();
             services.AddSingleton<IPostService, PostService>();
-            if (Environment.IsDevelopment())
+            if (!Environment.IsDevelopment())
             {
                 services.AddSingleton<IPostsService, PostExampleService>();
                 services.AddSingleton<ICommentsService, CommentExampleService>();
