@@ -1,3 +1,17 @@
-﻿@tailwind base;
+﻿:root {
+    --color-primary: #FFFFFF;
+    --color-secondary: #fcfcfc;
+}
+
+.bg-pColor {
+    background-color: var(--color-primary);
+}
+
+.bg-sColor {
+    background-color: var(--color-secondary);
+}
+
+
+@tailwind base;
 @tailwind components;
 @tailwind utilities;

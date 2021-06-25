@@ -1,4 +1,4 @@
-﻿<div class="grid grid-cols-12 bg-gray-800 text-white mt-8 rounded-lg">
+﻿<div class="grid grid-cols-12 bg-sColor text-white mt-8 rounded-lg shadow">
     <div class="bg-gray-800" style="border-radius: 10px 0px 0px 10px">
         <div class="voteButton">
             <a><span class="material-icons" style="@(post.VoteState == Domain.Entities.VoteState.Up ? "color: orange" : "")" @onclick="PostUpVote">arrow_upward</span></a>
@@ -32,7 +32,7 @@
                 }
             </div>
         </div>
-        <div class="flex secondaryBtnColor postButtons bg-gray-800" style=" border-radius: 0px 0px 10px 0px;">
+        <div class="flex secondaryBtnColor postButtons bg-sColor" style=" border-radius: 0px 0px 10px 0px;">
             <a class="flex-initial"><span class="material-icons">forum</span>Comments</a>
             <a class="flex-initial"><span class="material-icons">share</span>Share</a>
             <a class="flex-initial"><span class="material-icons">archive</span>Save</a>
