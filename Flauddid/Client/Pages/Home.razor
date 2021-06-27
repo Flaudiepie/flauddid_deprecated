@@ -3,11 +3,16 @@
 @if (posts is not null)
 {
     <div class="grid grid-cols-6" style="margin-top: 5rem">
-        <div class="col-start-3 col-span-2">
+        <div class="col-start-2 col-span-3">
             @foreach (var post in posts)
             {
                 <Post post="@post" />
             }
+        </div>
+        <div class="col-start-5 col-span-2" style="margin-left: 2rem; margin-right: 4rem">
+            <div class="g-sColor text-white mt-8 rounded-lg shadow" style="position: fixed; height: 500px; width: 300px;">
+                test
+            </div>
         </div>
     </div>
 }

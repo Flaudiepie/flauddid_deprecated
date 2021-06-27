@@ -41,24 +41,24 @@
 }
 
 .voteButton span {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .voteButton div {
-    font-size: 9px;
+    font-size: 11px;
     margin: 0px;
     font-weight: 700;
 }
 
 .postInfo{
-    font-size: 9px;
+    font-size: 10px;
     padding-top: 2px;
 }
 
 .postButtons a{
     align-items: center;
     display: flex;
-    font-size: 9px;
+    font-size: 11px;
     padding: 9px;
     cursor: pointer;
     margin-right: 4px;
@@ -79,10 +79,11 @@
 
 .title{
     margin-left: 8px;
+    font-size: 18px;
 }
 
 .content p{
     max-height: 300px;
-    font-size: 11px!important;
+    font-size: 13px!important;
     margin-left: 8px;
 }
