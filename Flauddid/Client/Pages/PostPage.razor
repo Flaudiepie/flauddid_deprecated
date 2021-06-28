@@ -1,3 +1,26 @@
 ﻿@page "/r/{subreddit}/{id}"
 
-<Post post="@Post"/>
+@if(Post is not null)
+{
+<div class="grid grid-col-3 grid-row-3 bg-sColor text-white mt-8 rounded-lg shadow grid-flow-row auto-rows-max">
+    <div class="flex flex-row text-white mt-8 rounded-lg shadow voteButton justify-center col-span-3">
+        <a><span class="material-icons" style="@(Post.VoteState == Domain.Entities.VoteState.Up ? "color: orange" : "")" @onclick="PostUpVote">arrow_upward</span></a>
+        <div style="@(Post.VoteState == Domain.Entities.VoteState.Up || Post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")">@Votes</div>
+        <a><span class="material-icons" style="@(Post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")" @onclick="PostDownVote">arrow_downward</span></a>
+    </div>
+    <div class="col-span-2 row-span-2 row-start-2" style="margin-left: 1rem; margin-top: 1rem">
+        <Post post="@Post"/>
+    </div>
+    <div class="col-start-3 row-start-2" style="margin-left: 2rem; margin-right: 4rem; margin-top: 1rem;">
+            <div class="g-sColor text-white mt-8 rounded-lg shadow" style="height: 500px; width: 300px;">
+                test
+            </div>
+    </div>
+</div>
+}
+else
+{
+    <div class="flex items-center justify-center h-screen">
+        <LoadingSpinner />
+    </div>
+}

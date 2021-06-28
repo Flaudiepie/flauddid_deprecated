@@ -1,0 +1,7 @@
+.voteButton a {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    line-height: 0;
+}
