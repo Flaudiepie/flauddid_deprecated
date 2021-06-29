@@ -2,14 +2,40 @@
 
 @if(Post is not null)
 {
-<div class="grid grid-col-3 grid-row-3 bg-sColor text-white mt-8 rounded-lg shadow grid-flow-row auto-rows-max">
-    <div class="flex flex-row text-white mt-8 rounded-lg shadow voteButton justify-center col-span-3">
-        <a><span class="material-icons" style="@(Post.VoteState == Domain.Entities.VoteState.Up ? "color: orange" : "")" @onclick="PostUpVote">arrow_upward</span></a>
-        <div style="@(Post.VoteState == Domain.Entities.VoteState.Up || Post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")">@Votes</div>
-        <a><span class="material-icons" style="@(Post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")" @onclick="PostDownVote">arrow_downward</span></a>
+<div class="grid grid-col-3 grid-row-3 bg-sColor text-white rounded-lg shadow grid-flow-row auto-rows-max" style="margin-top: 60px;">
+    <div class="col-span-3 flex justify-center" style="padding: 1rem; padding-top: 0rem!important;">
+        <div class="flex flex-row flex-none text-white bg-sColor rounded-lg shadow voteButton justify-between w-32 content-center" style="position: fixed;">
+            <a class="p-2"><span class="material-icons" style="@(Post.VoteState == Domain.Entities.VoteState.Up ? "color: orange" : "")" @onclick="PostUpVote">arrow_upward</span></a>
+            <div class="p-2" style="@(Post.VoteState == Domain.Entities.VoteState.Up || Post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")">@Votes</div>
+            <a class="p-2"><span class="material-icons" style="@(Post.VoteState == Domain.Entities.VoteState.Down ? "color: orange" : "")" @onclick="PostDownVote">arrow_downward</span></a>
+        </div>
     </div>
     <div class="col-span-2 row-span-2 row-start-2" style="margin-left: 1rem; margin-top: 1rem">
-        <Post post="@Post"/>
+         <div class="grid grid-flow-row auto-rows-max">
+            <div class="flex postInfo">
+                <div class="p-2 flex-initial">r/@Post.Subreddit</div>
+                <div class="p-2 flex-initial secondaryBtnColor">by u/@Post.Author</div>
+            </div>
+            <div>
+                <h3 class="title">@Post.Title</h3>
+            </div>
+            <div class="content">
+                @switch (Post.PostType)
+                {
+                    case Domain.Entities.PostType.Image:
+                        <img class="img-fluid" src="@Post.Content" />
+                        break;
+                    case Domain.Entities.PostType.TextOnly:
+                        <p class="overflow-auto customScrolbar">@Post.Content</p>
+                        break;
+                    case Domain.Entities.PostType.Video:
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
+                        </div>
+                        break;
+                }
+            </div>
+        </div>
     </div>
     <div class="col-start-3 row-start-2" style="margin-left: 2rem; margin-right: 4rem; margin-top: 1rem;">
             <div class="g-sColor text-white mt-8 rounded-lg shadow" style="height: 500px; width: 300px;">

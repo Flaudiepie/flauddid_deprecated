@@ -4,4 +4,9 @@
     outline: none;
     cursor: pointer;
     line-height: 0;
+    font-size: 32px;
+}
+
+.voteButton div{
+    font-size: 18px;
 }

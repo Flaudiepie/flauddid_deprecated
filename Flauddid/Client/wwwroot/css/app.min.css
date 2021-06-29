@@ -621,8 +621,16 @@ video {
   width: 3rem;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
 .flex-initial {
   flex: 0 1 auto;
+}
+
+.flex-none {
+  flex: none;
 }
 
 @-webkit-keyframes spin {
@@ -716,12 +724,20 @@ video {
   flex-wrap: wrap;
 }
 
+.content-center {
+  align-content: center;
+}
+
 .items-center {
   align-items: center;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .overflow-auto {
